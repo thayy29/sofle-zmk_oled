@@ -95,8 +95,8 @@
             bindings = <
 &trans     &kp NUMBER_1  &kp NUMBER_2  &kp N3            &kp N4                   &kp N5                              &kp NUMBER_6  &kp NUMBER_7              &kp NUMBER_8           &kp NUMBER_9  &kp NUMBER_0  &trans
 &kp ESC    &kp Q         &kp W         &kp E             &kp R                    &kp T                               &kp Y         &kp U                     &kp I                  &kp O         &kp P         &kp BSPC
-&kp TAB    &kp A         &kp S         &hrm_ctrl LGUI D  &hrm_shift LEFT_SHIFT F  &kp G                               &kp H         &hrm_shift RIGHT_SHIFT J  &hrm_ctrl RIGHT_GUI K  &kp L         &kp SEMI      &tilda GRAVE SQT
-&kp LSHFT  &kp Z         &kp X         &kp C             &kp V                    &kp B      &kp C_MUTE    &none      &kp N         &kp M                     &kp COMMA              &kp DOT       &kp FSLH      &kp RSHFT
+&kp TAB    &kp A         &kp S         &hrm_ctrl LGUI D  &hrm_shift LEFT_SHIFT F  &kp G                               &kp H         &hrm_shift RIGHT_SHIFT J  &hrm_ctrl RIGHT_GUI K  &kp L         &kp SEMI      &kp SQT
+&kp LSHFT  &kp Z         &kp X         &kp C             &kp V                    &kp B      &kp C_MUTE    &none      &kp N         &kp M                     &kp COMMA              &kp DOT       &kp FSLH      &kp TILDE
                          &trans        &trans            &kp LEFT_COMMAND         &kp SPACE  &kp RET       &kp ENTER  &kp SPACE     &mo 1                     &mo 2                  &trans
             >;
 
