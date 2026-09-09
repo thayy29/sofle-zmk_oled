@@ -1,0 +1,14 @@
+// Sofle OLED Pikachu Display Overlay
+// This overlay customizes the display for our Pikachu animation
+
+&spi3 {
+    status = "okay";
+};
+
+&i2c0 {
+    status = "okay";
+    clock-frequency = <100000>;
+
+    // SSD1306 OLED display remains configured
+    // Our code will customize what appears on it
+};
