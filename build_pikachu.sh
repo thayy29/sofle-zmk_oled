@@ -27,7 +27,7 @@ fi
 # Build left side
 echo -e "${BLUE}Building LEFT side...${NC}"
 west build -d "$BUILD_DIR/left" \
-    -b nice_nano \
+    -b nice_nano_v2 \
     -s zmk/app \
     -- -DSHIELD=sofle_left \
     -DCONFIG_ZMK_DISPLAY=y \
@@ -39,7 +39,7 @@ echo ""
 # Build right side
 echo -e "${BLUE}Building RIGHT side...${NC}"
 west build -d "$BUILD_DIR/right" \
-    -b nice_nano \
+    -b nice_nano_v2 \
     -s zmk/app \
     -- -DSHIELD=sofle_right \
     -DCONFIG_ZMK_DISPLAY=y \
