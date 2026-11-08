@@ -39,6 +39,56 @@ Para a configuração manual sugerimos que siga os seguintes passos:
 Para fazer as alterações pelo github, é só alterar e criar regras no [teclado].keymap de acordo com o que você, o USER, achar melhor.
 Atenção! Considere alterar direto pelo arquivo `[teclado].keymap` quando você já leu as docs do zmk e sabe exatamente o que está fazendo! Aqui, nunca vai ter algum tipo de limitação por GUI, apenas limitação pelo seu próprio código.
 
+## Fazendo um remap e atualizando o firmware
+
+O keymap fica em `config/sofle.keymap`. Cada camada (`win`, `utils`, `adjust`, ...) tem um bloco `bindings = <...>` com as teclas na mesma ordem do desenho do teclado no comentário acima dele.
+
+### 1. Editar o keymap
+
+1. Abra `config/sofle.keymap` e encontre a camada que quer alterar.
+2. Troque o código da tecla no bloco `bindings`. Exemplos:
+   - `&kp LCTRL` = Ctrl esquerdo
+   - `&kp LEFT_COMMAND` = GUI/Win/Cmd esquerdo
+   - `&hrm_ctrl LCTRL D` = tecla D que vira Ctrl quando segurada
+3. Mantenha a mesma quantidade de teclas por linha, senão o layout das teclas fica deslocado.
+4. Se quiser documentar a mudança, atualize também o desenho no comentário acima do bloco.
+
+Referência de códigos: [zmk.dev/docs/keys](https://zmk.dev/docs/keys).
+
+### 2. Gerar o firmware (opção A: GitHub, recomendada)
+
+1. Faça commit e push para o seu fork:
+   ```bash
+   git add config/sofle.keymap
+   git commit -m "Remap: <o que mudou>"
+   git push
+   ```
+2. Na aba **Actions** do GitHub, espere o workflow **build** terminar (ele roda a cada push).
+3. Abra a execução concluída e baixe o artefato **firmware.zip** na seção *Artifacts*.
+4. Extraia o zip. Ele tem um arquivo para cada lado do teclado (LEFT e RIGHT).
+
+### 2. Gerar o firmware (opção B: localmente)
+
+Requer o ambiente do ZMK/west configurado.
+
+```bash
+./build_pikachu.sh          # use ./build_pikachu.sh --clean para limpar antes
+```
+
+Ao final, os arquivos ficam em `build/sofle_left.uf2` e `build/sofle_right.uf2`.
+
+### 3. Gravar no teclado
+
+Repita para cada lado (LEFT e RIGHT):
+
+1. Conecte o lado por USB.
+2. Dê dois cliques rápidos (menos de 1s) no botão RST. Vai aparecer uma pasta chamada "Nicenano".
+3. Copie o arquivo `.uf2` correspondente para essa pasta. O teclado reinicia sozinho.
+
+Não é preciso apagar nada dentro da pasta. Se aparecer um erro depois de gravar, é normal no ZMK.
+
+> Dica: se algo não funcionar depois do flash, confira se gravou o lado certo em cada metade do teclado (LEFT na esquerda, RIGHT na direita).
+
 ## Instalação
 
 Para flashear o firmware do teclado novo basta seguir os seguintes passos:
