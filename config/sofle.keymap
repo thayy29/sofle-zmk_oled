@@ -16,15 +16,6 @@
 / {
     // Activate ADJUST layer by pressing raise and lower
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        adjust_layer {
-            if-layers = <1 2>;
-            then-layer = <3>;
-        };
-    };
-
     combos {
         compatible = "zmk,combos";
 
@@ -76,6 +67,22 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
+        };
+    };
+
+    macros {
+        mac_profile: mac_profile {
+            compatible = "zmk,behavior-macro";
+            label = "MAC_PROFILE";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0>, <&to 3>;
+        };
+
+        win_profile: win_profile {
+            compatible = "zmk,behavior-macro";
+            label = "WIN_PROFILE";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1>, <&to 0>;
         };
     };
 
@@ -136,11 +143,32 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &trans     &trans    &trans    &trans     &trans   &trans
+&bt BT_CLR      &mac_profile  &win_profile &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &trans     &trans    &trans    &trans     &trans   &trans
 &bt BT_CLR_ALL  &kp INS       &kp PSCRN     &kp K_CMENU   &trans        &trans                          &kp PG_UP  &trans    &kp UP    &trans     &kp N0   &trans
 &trans          &kp LALT      &kp LCTRL     &kp LSHFT     &trans        &kp CLCK                        &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp DEL  &kp BSPC
 &trans          &kp K_UNDO    &kp K_CUT     &kp K_COPY    &kp K_PASTE   &trans        &trans    &trans  &trans     &trans    &trans    &trans     &trans   &trans
                               &trans        &trans        &trans        &trans        &trans    &trans  &trans     &trans    &trans    &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        mac {
+            display-name = "mac";
+
+            // ------------------------------------------------------------------------------------------------------------
+            // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |       |
+            // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   | BKSPC |
+            // |  TAB  |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
+            // | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MUTE  |  |       |  N   |  M    |  ,    |  .   |   /   | SHIFT |
+            //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
+
+            bindings = <
+&trans     &kp NUMBER_1  &kp NUMBER_2  &kp N3            &kp N4                   &kp N5                              &kp NUMBER_6  &kp NUMBER_7              &kp NUMBER_8           &kp NUMBER_9  &kp NUMBER_0  &trans
+&kp ESC    &kp Q         &kp W         &kp E             &kp R                    &kp T                               &kp Y         &kp U                     &kp I                  &kp O         &kp P         &kp BSPC
+&kp TAB    &kp A         &kp S         &hrm_ctrl LGUI D  &hrm_shift LEFT_SHIFT F  &kp G                               &kp H         &hrm_shift RIGHT_SHIFT J  &hrm_ctrl RIGHT_GUI K  &kp L         &kp SEMI      &tilda TILDE SQT
+&kp LSHFT  &kp Z         &kp X         &kp C             &kp V                    &kp B      &kp C_MUTE    &none      &kp N         &kp M                     &kp COMMA              &kp DOT       &kp FSLH      &trans
+                            &trans        &trans            &kp LGUI                &kp SPACE  &kp RET      &kp ENTER  &kp SPACE     &mo 1                     &mo 2                  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
