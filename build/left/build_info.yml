@@ -1,0 +1,5 @@
+west:
+  command: /opt/homebrew/bin/west build -d /Users/thay/Documents/Code/sofle-zmk_oled/build/left
+    -b nice_nano -s zmk/app -- -DSHIELD=sofle_left -DCONFIG_ZMK_DISPLAY=y -DCONFIG_CFB=y
+  topdir: /Users/thay/Documents/Code/sofle-zmk_oled
+  version: 1.2.0
