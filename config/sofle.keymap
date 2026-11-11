@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/modifiers.h>
 
 #define BASE 0
 #define LOWER 1
@@ -58,6 +59,14 @@
             flavor = "tap-preferred";
         };
 
+        ctrl_tab: ctrl_tab {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CTRL_TAB";
+            #binding-cells = <0>;
+            bindings = <&kp TAB>, <&kp LA(TAB)>;
+            mods = <(MOD_LCTL)>;
+        };
+
         tilda: tilda {
             compatible = "zmk,behavior-hold-tap";
             label = "TILDA";
@@ -107,9 +116,9 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | ENTER | SPACE| LOWER | RAISE | GUI  |
 
             bindings = <
-&trans     &kp NUMBER_1  &kp NUMBER_2  &kp N3            &kp N4                   &kp N5                              &kp NUMBER_6  &kp NUMBER_7              &kp NUMBER_8           &kp NUMBER_9  &kp NUMBER_0  &trans
+&mac_profile     &kp NUMBER_1  &kp NUMBER_2  &kp N3            &kp N4                   &kp N5                              &kp NUMBER_6  &kp NUMBER_7              &kp NUMBER_8           &kp NUMBER_9  &kp NUMBER_0  &iphone_profile
 &kp ESC    &kp Q         &kp W         &kp E             &kp R                    &kp T                               &kp Y         &kp U                     &kp I                  &kp O         &kp P         &kp BSPC
-&kp TAB    &kp A         &kp S         &hrm_ctrl LGUI D  &hrm_shift LEFT_SHIFT F  &kp G                               &kp H         &hrm_shift RIGHT_SHIFT J  &hrm_ctrl RIGHT_GUI K  &kp L         &kp SEMI      &tilda TILDE SQT
+&ctrl_tab  &kp A         &kp S         &hrm_ctrl LGUI D  &hrm_shift LEFT_SHIFT F  &kp G                               &kp H         &hrm_shift RIGHT_SHIFT J  &hrm_ctrl RIGHT_GUI K  &kp L         &kp SEMI      &tilda TILDE SQT
 &kp LSHFT  &kp Z         &kp X         &kp C             &kp V                    &kp B      &kp C_MUTE    &none      &kp N         &kp M                     &kp COMMA              &kp DOT       &kp FSLH      &trans
                             &trans        &trans            &kp LCTRL               &kp SPACE  &kp RET      &kp ENTER  &kp SPACE     &mo 1                     &mo 2                  &trans
             >;
@@ -173,11 +182,11 @@
             // Overlay: só a tecla CTRL do polegar esquerdo vira CMD. Todo o resto herda da camada default (win).
 
             bindings = <
-&trans     &trans  &trans  &trans            &trans                   &trans                              &trans  &trans              &trans           &trans  &trans  &trans
+&win_profile     &trans  &trans  &trans            &trans                   &trans                              &trans  &trans              &trans           &trans  &mac_profile  &iphone_profile
 &trans     &trans  &trans  &trans            &trans                   &trans                              &trans  &trans              &trans           &trans  &trans  &trans
 &trans     &trans  &trans  &trans            &trans                   &trans                              &trans  &trans              &trans           &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                            &trans        &trans            &kp LGUI                &trans  &trans      &trans  &trans     &trans                     &trans                  &trans
+                            &kp LGUI        &trans            &kp LGUI                &trans  &trans      &trans  &trans     &trans                     &trans                  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
