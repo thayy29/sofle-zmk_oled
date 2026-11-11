@@ -71,11 +71,14 @@ Referência de códigos: [zmk.dev/docs/keys](https://zmk.dev/docs/keys).
 
 Requer o ambiente do ZMK/west configurado.
 
+Mesmo comando usado no CI (`.github/workflows/build.yml`):
+
 ```bash
-./build_pikachu.sh          # use ./build_pikachu.sh --clean para limpar antes
+west build -s zmk/app -d build/left  -b nice_nano_v2 -- -DZMK_CONFIG="$PWD/config" -DSHIELD="sofle_left nice_oled"
+west build -s zmk/app -d build/right -b nice_nano_v2 -- -DZMK_CONFIG="$PWD/config" -DSHIELD="sofle_right nice_oled"
 ```
 
-Ao final, os arquivos ficam em `build/sofle_left.uf2` e `build/sofle_right.uf2`.
+Ao final, os arquivos ficam em `build/left/zephyr/zmk.uf2` e `build/right/zephyr/zmk.uf2`.
 
 ### 3. Gravar no teclado
 
