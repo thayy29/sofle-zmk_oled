@@ -104,7 +104,7 @@
             // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   | BKSPC |
             // |  TAB  |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
             // | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MUTE  |  |       |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-            //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
+            //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | ENTER | SPACE| LOWER | RAISE | GUI  |
 
             bindings = <
 &trans     &kp NUMBER_1  &kp NUMBER_2  &kp N3            &kp N4                   &kp N5                              &kp NUMBER_6  &kp NUMBER_7              &kp NUMBER_8           &kp NUMBER_9  &kp NUMBER_0  &trans
@@ -168,7 +168,7 @@
             // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   | BKSPC |
             // |  TAB  |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
             // | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MUTE  |  |       |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-            //               | GUI | ALT  | CMD  | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
+            //               | GUI | ALT  | CMD  | LOWER|  ENTER |  | ENTER | SPACE | LOWER  | RAISE   | GUI  |
             //
             // Overlay: só a tecla CTRL do polegar esquerdo vira CMD. Todo o resto herda da camada default (win).
 
