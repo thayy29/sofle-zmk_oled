@@ -9,7 +9,9 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      # Fixado antes da migração para Zephyr 4.1 (c06fa48c, 2025-12-09).
+      # O zmk-nice-oled usa a API do LVGL 8, que o Zephyr 4.1 não tem mais.
+      revision: abb64ba316c29caddc49727ca2cac2f0ed5970c7
       import: app/west.yml
     - name: zmk-nice-oled
       remote: mctechnology17
