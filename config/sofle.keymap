@@ -183,7 +183,7 @@
             // Overlay: só a tecla CTRL do polegar esquerdo vira CMD. Todo o resto herda da camada default (win).
 
             bindings = <
-&trans     &trans  &trans  &trans            &trans                   &trans                              &trans  &trans              &trans           &trans  &trans  &trans
+&mo 4      &trans  &trans  &trans            &trans                   &trans                              &trans  &trans              &trans           &trans  &trans  &trans
 &trans     &trans  &trans  &trans            &trans                   &trans                              &trans  &trans              &trans           &trans  &trans  &trans
 &trans     &trans  &trans  &trans            &trans                   &trans                              &trans  &trans              &trans           &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -196,16 +196,16 @@
         mouse {
             display-name = "mouse";
 
-            // Camada do mouse (segure o GUI do dedão direito).
+            // Camada do mouse (segure a tecla acima do ESC, &mo 4).
             // W/A/S/D rolam a tela. I/J/K/L movem o cursor (cima, esquerda, baixo, direita).
-            // SPACE e RET do dedão esquerdo são clique esquerdo e direito.
+            // SPACE do dedão esquerdo é o clique esquerdo.
 
             bindings = <
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &msc SCRL_UP &trans &trans &trans &trans &trans &mmv MOVE_UP &trans &trans &trans
 &trans &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT &trans &trans &trans &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-&trans &trans &trans &mkp RCLK &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &mkp LCLK &trans &trans &trans &trans &trans &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
