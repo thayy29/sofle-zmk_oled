@@ -198,12 +198,13 @@
             display-name = "mouse";
 
             // Camada do mouse (segure o GUI do dedão direito).
-            // W/A/S/D rolam a tela. SPACE e RET do dedão esquerdo são clique esquerdo e direito.
+            // W/A/S/D rolam a tela. I/J/K/L movem o cursor (cima, esquerda, baixo, direita).
+            // SPACE e RET do dedão esquerdo são clique esquerdo e direito.
 
             bindings = <
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-&trans &trans &msc SCRL_UP &trans &trans &trans &trans &trans &trans &trans &trans &trans
-&trans &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &msc SCRL_UP &trans &trans &trans &trans &trans &mmv MOVE_UP &trans &trans &trans
+&trans &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT &trans &trans &trans &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &mkp LCLK &mkp RCLK &trans &trans &trans &trans &trans
             >;
