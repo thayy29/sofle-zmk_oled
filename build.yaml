@@ -22,3 +22,6 @@ include:
     shield: sofle_left nice_oled
   - board: nice_nano_v2
     shield: sofle_right nice_oled
+  # Firmware que apaga todos os pareamentos guardados. Use só quando o Bluetooth travar.
+  - board: nice_nano_v2
+    shield: settings_reset
